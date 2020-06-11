@@ -81,4 +81,4 @@
                                  I= [0.4, 0.5,  0.1]
                                  
  Spposons maintenant que dans la destination on a une chaine observée O=['11','10','00','00']. L'objectif est de trouver la
- sequence d'etat (cachée) correspondante à O.
+ sequence d'etat (cachée) correspondante à O. 
