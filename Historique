@@ -1,19 +1,30 @@
 + Historique :
 
-    L’algorithme de Viterbi trouve ses origines dans un article parut en 1967 par Andrew J. Viterbi. Celui-ci proposait alors une solution optimale pour le décodage de code convolutionnel. Depuis ce temps, les applications de cet algorithme n’ont cessées de se développer. En témoigne aujourd’hui l’utilisation importante de cet algorithme dans le domaine des télécommunications. Dans notre projet on s'interesse au problème de dècodage.
+    L’algorithme de Viterbi trouve ses origines dans un article parut en 1967 par Andrew J. Viterbi. Celui-ci proposait alors
+    une solution optimale pour le décodage de code convolutionnel. Depuis ce temps, les applications de cet algorithme n’ont 
+    cessées de se développer. En témoigne aujourd’hui l’utilisation importante de cet algorithme dans le domaine des
+    télécommunications. Dans notre projet on s'interesse au problème de dècodage.
 
 + Modélisation du problème :
 
-    Les chaînes de Markov sont des outils de modélisation très utilisés dans de nombreux domaines, en reconnaissance des formes plus particulièrement. Le modèle standard peut être étendu aux « chaînes de Markov cachées » (CMC) pour lesquelles on peut distinguer deux composantes principales : les observations, qui sont observables et les états cachés inobservables. A chaque état caché d’une CMC est associé une distribution de probabilités d’émission de symboles observables. A partir d’une suite observée de tels symboles il est possible d’apprendre (ou d’estimer) les paramètres d’une CMC susceptible de produire cette suite avec une forte probabilité. 
-    Un modèle de Markov caché est basé sur un modèle de Markov, sauf qu'on ne peut pas observer directement la séquence d'états: les états sont cachés. Chaque état émet des "observations" qui, elles, sont observables. On ne travaille donc pas sur la séquence d'états, mais sur la séquence d'observations générées par les états.
+    Les chaînes de Markov sont des outils de modélisation très utilisés dans de nombreux domaines, en reconnaissance des formes
+    plus particulièrement. Le modèle standard peut être étendu aux « chaînes de Markov cachées » (CMC) pour lesquelles on peut
+    distinguer deux composantes principales : les observations, qui sont observables et les états cachés inobservables.
+    A chaque état caché d’une CMC est associé une distribution de probabilités d’émission de symboles observables. A partir
+    d’une suite observée de tels symboles il est possible d’apprendre (ou d’estimer) les paramètres d’une CMC susceptible
+    de produire cette suite avec une forte probabilité. 
+    Un modèle de Markov caché est basé sur un modèle de Markov, sauf qu'on ne peut pas observer directement la séquence d'états:
+    les états sont cachés. Chaque état émet des "observations" qui, elles, sont observables. On ne travaille donc pas sur 
+    la séquence d'états, mais sur la séquence d'observations générées par les états.
   
 + Position du problème :
   
-    Étant donné une observation notée o et une CMC notée A=(T,E,I), déterminer le chemin d’états noté q le plus probablement suivi lors de la génération de l’observation o par la CMC A. Ce qui se note P(q|o,A) maximal.
-avec:
-      T: matrice de transition
-      E: matrice d'émisson
-      I: probabilité initiale
+    Étant donné une observation notée o et une CMC notée A=(T,E,I), déterminer le chemin d’états noté q le plus probablement
+    suivi lors de la génération de l’observation o par la CMC A. Ce qui se note P(q|o,A) maximal.
+        avec:
+             T: matrice de transition
+             E: matrice d'émisson
+             I: probabilité initiale
       
  Une serie de lettres (a), (b) et (c) décodée on '0' et '1' (tableau si-dessous) passe dans un canal bruté (C).
  
