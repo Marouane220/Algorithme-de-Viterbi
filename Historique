@@ -66,3 +66,18 @@
                                                     
                                                       Les émissions
   
+  Dans ce cas:            
+                                         a    b    c
+                                     a |0.8  0.1  0.1|   (0.8 + 0.1 + 0.1 = 1)
+      Matrice de transition:     T=  b |0.2  0.7  0.1|        
+                                     c |0.3  0.1  0.6| 
+                                     
+                                        00    10    11
+                                     a |0.75  0.1  0.15|
+      Matrice d'emission:        E=  b |0.15  0.6  0.25|
+                                     c |0.1   0.1  0.9 |
+       
+      Probabilité initiale:           a    b     c
+                                 I= [0.4, 0.5,  0.1]
+                                 
+                                 
