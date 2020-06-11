@@ -26,7 +26,7 @@
              E: matrice d'émisson
              I: probabilité initiale
       
- Une serie de lettres (a), (b) et (c) décodée on '0' et '1' (tableau si-dessous) passe dans un canal bruté (C).
+ Une serie de lettres (a), (b) et (c) décodée en '0' et '1' (tableau si-dessous) passe dans un canal bruté (C).
  
                 |------|-------|-------|
                 |   a  |   b   |   c   |
