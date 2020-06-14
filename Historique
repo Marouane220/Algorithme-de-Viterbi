@@ -1,11 +1,11 @@
-+ Historique :
+1) Historique :
 
     L’algorithme de Viterbi trouve ses origines dans un article parut en 1967 par Andrew J. Viterbi. Celui-ci proposait alors
     une solution optimale pour le décodage de code convolutionnel. Depuis ce temps, les applications de cet algorithme n’ont 
     cessées de se développer. En témoigne aujourd’hui l’utilisation importante de cet algorithme dans le domaine des
     télécommunications. Dans notre projet on s'interesse au problème de dècodage.
 
-+ Modélisation du problème :
+2) Modélisation du problème :
 
     Les chaînes de Markov sont des outils de modélisation très utilisés dans de nombreux domaines, en reconnaissance des formes
     plus particulièrement. Le modèle standard peut être étendu aux « chaînes de Markov cachées » (CMC) pour lesquelles on peut
@@ -17,7 +17,7 @@
     les états sont cachés. Chaque état émet des "observations" qui, elles, sont observables. On ne travaille donc pas sur 
     la séquence d'états, mais sur la séquence d'observations générées par les états.
   
-+ Position du problème :
+3) Position du problème :
   
     Étant donné une observation notée o et une CMC notée A=(T,E,I), déterminer le chemin d’états noté q le plus probablement
     suivi lors de la génération de l’observation o par la CMC A. Ce qui se note P(q|o,A) maximal.
@@ -82,3 +82,48 @@
                                  
  Spposons maintenant que dans la destination on a une chaine observée O=['11','10','00','00']. L'objectif est de trouver la
 séquence d'état (cachée) correspondante à O. 
+
+4) Solution.
+
+    4-1) Solution naive.
+        
+        + Les possibilités:
+        
+                (1)                           (2)                        (3)                                  (m)
+  N:      a --> a --> a --> a         a --> a --> a --> b        a --> a --> a --> c      .....       c --> c --> c --> c
+          |     |     |    |          |     |     |     |        |     |     |     |                  |     |     |     |
+  T:     11     10    00   00         11    10    00    00      11     10    00    00                 11    10    00    00
+     
+  avec   
+        N: nombre des différents états cachées (N=3, (a,b,c))
+        T: la taille de la chaine observée O (T=4, O=['11','10','00','00'])
+        m: nombre des possibilités (m=N**T, m = 3**4 = 81 possibilités)
+        
+     + La solution naive consiste à chercher parmis m possibilités la possibilité la plus probable.
+     
+        - On calcule la probabilité de la possibilité:
+                                                          a --> a --> a --> a     } Q1
+                                                          |     |     |    |
+                                                         11     10    00   00     } O1
+                                                       
+        - Pour cela on calcule la probabilité jointe P1(O1,Q1):
+        
+                                        P1(O,Q) = P1(O/Q)*P(Q)
+                                                = P(11,10,00,00,a,a,a,a)
+                                                = P(11/a)*P(10/a)*P(00/a)*P(00/a) * P(a) * P(a/a)*P(a/a)*P(a/a)
+                                                               |                     |               |
+                                                        (Mat. Emission)        (P. Initiale)    (Mat. transition)
+                                                       
+                                                = 0.15*0.1*0.75*0.75*0.4*0.8*0.8*0.8
+                                        P1(O,Q) = 0,001728
+                                      
+       + D'une façon générale la probabilité de chaque possibilité:
+       
+                                Pj(O,Q) = produit(Pj(Oi/Qi)) * produit(Pj(Qi/Qi-1))
+                                             i                    i
+                                             
+        Notre état cherchée est celle qui correspond à:
+                                                    
+                                                           Max Pj(O,Q)
+                                                            j=1,.,27
+                                      
