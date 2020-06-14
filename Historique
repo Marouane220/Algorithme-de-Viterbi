@@ -122,8 +122,8 @@ séquence d'état (cachée) correspondante à O.
                                 Pj(O,Q) = produit(Pj(Oi/Qi)) * produit(Pj(Qi/Qi-1))
                                              i                    i
                                              
-        Notre état cherchée est celle qui correspond à:
+        Notre séquence d'état cherchée est celle qui correspond à:
                                                     
-                                                           Max Pj(O,Q)
-                                                            j=1,.,27
+                                                                      Max Pj(O,Q)
+                                                                       j=1,.,27
                                       
