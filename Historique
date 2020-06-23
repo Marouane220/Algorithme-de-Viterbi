@@ -125,5 +125,5 @@ séquence d'état (cachée) correspondante à O.
         Notre séquence d'état cherchée est celle qui correspond à:
                                                     
                                                                       Max Pj(O,Q)
-                                                                       j=1,.,27
+                                                                       j=1,.,m
                                       
