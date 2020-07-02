@@ -1,0 +1,8 @@
+Provide your data as sentences each in a new line
+Example:
+Jane will spot john
+Jane is great leader.
+End of example
+
+Don't forget to delete anything else that is not a training sentence
+
