@@ -1,5 +1,3 @@
-import time
-
 states = ('a', 'b', 'c')
 
 observations = ('00', '10', '11')
@@ -28,8 +26,6 @@ def comb(List,n):
             T.append(a)
     return T
 
-start = time.time()
-
 def naive(states, obs_seq, start_prob, trans_prob, emit_prob):
     V = []
     m=len(states)**len(obs_seq)
@@ -45,7 +41,4 @@ def naive(states, obs_seq, start_prob, trans_prob, emit_prob):
     P = max(V)
     return (P)
 
-print(naive(states,['11','10','00','00','10','11']*3, start_probability, transition_probability, emission_probability))
-
-end = time.time()
-print(end-start, 'Secondes')
+print(naive(states,['11','10','00','00','10','11'], start_probability, transition_probability, emission_probability))
