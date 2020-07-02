@@ -11,6 +11,8 @@ As we aimed to create an application mixing between AI concepts and Viterbi path
 
 The program here gave a number of tags corresponding to each word in the sentences provided.
 
+![alt params](https://user-images.githubusercontent.com/31079981/86390304-bd454480-bc8f-11ea-8196-4cb9ccbdc9ef.png)
+
 ![alt output](https://user-images.githubusercontent.com/31079981/86389025-a30a6700-bc8d-11ea-9d69-46e1fd1906f0.png)
 
 You can notice also that even the sentence has got a homonyms "will" & "Will" and considering that the input is lowercased you can how effective a well trained vitebi algorithm can spot the difference.
