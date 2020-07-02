@@ -75,7 +75,7 @@
                                         00    10    11
                                      a |0.75  0.1  0.15|
       Matrice d'emission:        E=  b |0.15  0.6  0.25|
-                                     c |0.1   0.1  0.9 |
+                                     c |0.1   0.1  0.8 |
        
       Probabilité initiale:           a    b     c
                                  I= [0.4, 0.5,  0.1]
@@ -126,4 +126,94 @@ séquence d'état (cachée) correspondante à O.
                                                     
                                                                       Max Pj(O,Q)
                                                                        j=1,.,m
-                                      
+   4-2) Solution programmation dynamique (Algo. Viterbi):
+           
+           L’algorithme Viterbi [14] est un algorithme issu de la programmation dynamique permettant de déterminer un chemin le plus probable associé
+           à une séquence d’émissions (e1,..,ek) pour un MMC. Cet algorithme se base sur un calcul itératif pour chaque état caché (sl) du chemin le plus
+           probable atteignant cet état à l’étape i de l’exécution d’un processus Markovien.
+           On note par la suite cette probabilité P(e1 . . . ei)sl . Cette itération est effectuée chaque étape de l’exécution du processus Markovien. L’algorithme
+           est donc de complexité linéaire par rapport la taille de la séquence d’émissions.
+           
+           Suposons qu'on a obs_seq=['11','10','00'] cherchons la sequence cachée par l'algorithme de Viterbi.
+           +Conception:
+           
+                            V1                             V2                              V3                                 
+                            
+                            
+                        V1(1)=0.08                   V2(1)=0.0075                     V3(1)=0.00525
+                            c                              c                               c                                  
+                                                         
+                                                       
+                                                  
+                                                  
+                                                   
+                                                 
+                        V1(2)=0.125                   V2(2)=0.0525                    V3(2)=0.0051
+                            b                              b                               b                                   
+                                               
+                                             
+                                            
+                                           
+                                        
+                                       
+                        V1(3)=0.0225                   V2(3)=0.0018                   V3(2)=0.0337
+                            a                               a                               a                                 
+                            
+                            
+                           11                              10                              00                                  
+                           
+                           
+                  + Calcule des V1:
+                  
+                           V1(1) = P(11/c)*P(c) = 0.8 * 0.1 = 0.08
+                           V1(2) = P(11/b)*P(b) = 0.25 * 0.5 = 0.125
+                           V1(3) = P(11/a)*P(a) = 0.15 * 0.15 = 0.0225
+                  + Calcule des V2:
+                           #V2(1):
+                                P(10,c/c) = P(10/c)*P(c/c) = 0.1 * 0.6 = 0.06
+                                P(10,c/b) = P(10/c)*P(c/b) = 0.1 * 0.1 = 0.01
+                                P(10,c/a) = P(10/c)*P(c/a) = 0.1 * 0.1 = 0.01
+                                donc V2(1) = max(P(10,c/c)*V1(1),P(10,c/b)*V1(2),P(10,c/a)*V1(3))
+                                           = max(0.06 * 0.08, 0.01 * 0.125, 0.01 * 0.0225)
+                                           = 0.0075
+                           
+                           #V2(2):
+                                P(10,b/c) = P(10/b)*P(b/c) = 0.6 * 0.1 = 0.06
+                                P(10,b/b) = P(10/b)*P(b/b) = 0.6 * 0.7 = 0.42
+                                P(10,b/a) = P(10/b)*P(b/a) = 0.6 * 0.1 = 0.01
+                                donc V2(2) = max(P(10,b/c)*V1(1),P(10,b/b)*V1(2),P(10,b/a)*V1(3))
+                                           = max(0.06 * 0.08, 0.42 * 0.125, 0.01 * 0.0225)
+                                           = 0.0525
+                          #V2(3):
+                                P(10,a/c) = P(10/a)*P(a/c) = 0.1 * 0.3 = 0.03
+                                P(10,a/b) = P(10/a)*P(a/b) = 0.1 * 0.2 = 0.02
+                                P(10,a/a) = P(10/a)*P(a/a) = 0.1 * 0.8 = 0.08
+                                donc V2(3) = max(P(10,a/c)*V1(1),P(10,a/b)*V1(2),P(10,a/a)*V1(3))
+                                           = max(0.03 * 0.08, 0.02 * 0.125, 0.08 * 0.0225)
+                                           = 0.0018
+                   + Calcule des V3:
+                        #V3(1):
+                                P(00,c/c) = P(00/c)*P(c/c) = 0.1 * 0.6 = 0.06
+                                P(00,c/b) = P(00/c)*P(c/b) = 0.1 * 0.1 = 0.01
+                                P(00,c/a) = P(00/c)*P(c/a) = 0.1 * 0.1 = 0.01
+                                donc V3(1) = max(P(00,c/c)*V2(1),P(10,c/b)*V2(2),P(10,c/a)*V2(3))
+                                           = max(0.06 * 0.0075, 0.01 * 0.0525, 0.01 * 0.0018)
+                                           = 0.00525
+                           
+                           #V3(2):
+                                P(00,b/c) = P(00/b)*P(b/c) = 0.15 * 0.1 = 0.015
+                                P(00,b/b) = P(00/b)*P(b/b) = 0.15 * 0.7 = 0.105
+                                P(00,b/a) = P(00/b)*P(b/a) = 0.15 * 0.1 = 0.015
+                                donc V3(2) = max(P(00,b/c)*V2(1),P(00,b/b)*V2(2),P(00,b/a)*V2(3))
+                                           = max(0.015 * 0.0075, 0.105 * 0.0525, 0.015 * 0.0018)
+                                           = 0.00551
+                          #V3(3):
+                                P(00,a/c) = P(00/a)*P(a/c) = 0.75 * 0.1 = 0.075
+                                P(00,a/b) = P(00/a)*P(a/b) = 0.75 * 0.6 = 0.45
+                                P(00,a/a) = P(00/a)*P(a/a) = 0.75 * 0.1 = 0.075
+                                donc V2(3) = max(P(00,a/c)*V2(1),P(00,a/b)*V2(2),P(00,a/a)*V2(3))
+                                           = max(0.075 * 0.0075, 0.45 * 0.0525, 0.075 * 0.0018)
+                                           = 0.0337
+                                           
+                 On prend le max de chaque V(i) et ça nous donne la sequence la plus probable 
+                    et on à Seq_caché = ['b','b','a']
