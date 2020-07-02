@@ -21,7 +21,7 @@ You can notice also that even the sentence has got a homonyms "will" & "Will" an
 
 The program has already got a trained data only on the words that we worked on in the example. As if someone thought of making his own dataset and trained models he can refer to the "trainer.py" file under "viterbi tagging" directory to give a set of sentences -We suggest having a huge dataset to maximize the accuracy- and put it in the "data.txt" file. Running with a huge dataset may take a lot of time so we suggest also to work on computers with high preformances like the cloud services: AWS, GCP ...
 
-The "training.py" file contains a libarary "nltk" - don't forget "pip install nltk"- that will help to give tags automatically instead of doing each word in each sentence, this way will take you forever :D. And then you'll have as an output the parameters needed in the viterbi algorithm as lists and json texts.
+The "trainer.py" file contains a libarary "nltk" - don't forget "pip install nltk"- that will help to give tags automatically instead of doing each word in each sentence, this way will take you forever :D. And then you'll have as an output the parameters needed in the viterbi algorithm as lists and json texts.
 
 You'll find the list of english tags possible in the following link:
 https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
