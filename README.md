@@ -17,6 +17,8 @@ The program here gave a number of tags corresponding to each word in the sentenc
 
 You can notice also that even the sentence has got a homonyms "will" & "Will" and considering that the input is lowercased you can how effective a well trained a viterbi algorithm can spot the difference.
 
+![alt output](https://user-images.githubusercontent.com/31079981/86391419-ad2e6480-bc91-11ea-8540-5c4ba5f00c2f.png)
+
 The program has already got a trained data only on the words that we worked on in the example. As if someone thought of making his own dataset and trained models he can refer to the "trainer.py" file under "viterbi tagging" directory to give a set of sentences -We suggest having a huge dataset to maximize the accuracy- and put it in the "data.txt" file. Running with a huge dataset may take a lot of time so we suggest also to work on computers with high preformances like the cloud services: AWS, GCP ...
 
 The "training.py" file contains a libarary "nltk" - don't forget "pip install nltk"- that will help to give tags automatically instead of doing each word in each sentence, this way will take you forever :D. And then you'll have as an output the parameters needed in the viterbi algorithm as lists and json texts.
