@@ -26,4 +26,4 @@ https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
 
 You may think why looking for retagging words if already nltk can do it. The viterbi algorithm is more optimized, consider scaling projects in the future and having the data structured as the viterbi can process it, it will improve your word tagging framework's speed and efficiency.
 
-Finally this work couldn't be done without the collaboration of this beautiful team: Aya Sebti,Marouane Maaou and Mohammed Rhaouti
+Finally this work couldn't be done without the collaboration of this beautiful team: Aya Sebti, Marouane Maaou and Mohammed Rhaouti
