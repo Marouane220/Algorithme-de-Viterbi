@@ -15,18 +15,15 @@ The program here gave a number of tags corresponding to each word in the sentenc
 
 ![alt output](https://user-images.githubusercontent.com/31079981/86389025-a30a6700-bc8d-11ea-9d69-46e1fd1906f0.png)
 
-You can notice also that even the sentence has got a homonyms "will" & "Will" and considering that the input is lowercased you can how effective a well trained vitebi algorithm can spot the difference.
+You can notice also that even the sentence has got a homonyms "will" & "Will" and considering that the input is lowercased you can how effective a well trained a viterbi algorithm can spot the difference.
 
-The program has already got a trained data only on the words that we worked on in the example. As if someone thought of making his own dataset and trained models he can refer to the "trainer.py" file under "viterbi tagging" directory to give a set of sentences -We suggest having a huge dataset to maximaze the accuracy- and put it in the data.txt" file. Running with a huge dataset may take a lot of time so we suggest also to work on computers with high preformances like the cloud services: AWS, GCP ...
+The program has already got a trained data only on the words that we worked on in the example. As if someone thought of making his own dataset and trained models he can refer to the "trainer.py" file under "viterbi tagging" directory to give a set of sentences -We suggest having a huge dataset to maximize the accuracy- and put it in the "data.txt" file. Running with a huge dataset may take a lot of time so we suggest also to work on computers with high preformances like the cloud services: AWS, GCP ...
 
 The "training.py" file contains a libarary "nltk" - don't forget "pip install nltk"- that will help to give tags automatically instead of doing each word in each sentence, this way will take you forever :D. And then you'll have as an output the parameters needed in the viterbi algorithm as lists and json texts.
 
-Youll find the list of english tags possible in the following link:
+You'll find the list of english tags possible in the following link:
 https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
 
-You may think why looking for retagging words if already nltk can do it. The viterbi algorithm is more optimzed, consider scaling projects in the future and having the data structured as the viterbi can process it, it will improve your word tagging framework's speed and efficiency.
+You may think why looking for retagging words if already nltk can do it. The viterbi algorithm is more optimized, consider scaling projects in the future and having the data structured as the viterbi can process it, it will improve your word tagging framework's speed and efficiency.
 
-Finally this work couldn't be done without the collaboration of this beautiful team:
-Aya Sebti
-Marouane Maaou
-Mohammed Rhaouti
+Finally this work couldn't be done without the collaboration of this beautiful team: Aya Sebti,Marouane Maaou and Mohammed Rhaouti
