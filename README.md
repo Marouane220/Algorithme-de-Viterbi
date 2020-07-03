@@ -1,4 +1,5 @@
 # Viterbi algorithm
+
 Viterbi algorithm is known as a dynamic programming algorithm for finding the most likely sequence of hidden states. It provides a Viterbi path based on five parameters: States, observations, transition_probability, emission_probability and start_probability.
 
 Viterbi algorithm applications are a lot we give as examples:  decoding the convolutional codes used in both CDMA and GSM digital cellular, dial-up modems, satellite, deep-space communications, speech recognition, speech synthesis, diarization, keyword spotting, computational linguistics, and bioinformatics.
