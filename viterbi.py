@@ -1,5 +1,3 @@
-import time
-
 states = ('a', 'b', 'c')
 
 observations = ('00', '10', '11')
@@ -17,8 +15,6 @@ emission_probability = {
 	}
 
 start_probability = {'a': 0.2, 'b': 0.2, 'c': 0.6}
-
-start = time.time()
 
 def viterbi(states, obs_seq, start_prob, trans_prob, emit_prob):
 	V = [{}]
@@ -38,7 +34,4 @@ def viterbi(states, obs_seq, start_prob, trans_prob, emit_prob):
 	return (p,path[s])
 
 
-print(viterbi(states,  ['11','10','00','00','10','11']*300, start_probability, transition_probability, emission_probability))
-
-end = time.time()
-print(end-start, 'Secondes')
+print(viterbi(states,  ['11','10','00','00','10','11'], start_probability, transition_probability, emission_probability))
