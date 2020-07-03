@@ -1,5 +1,3 @@
-import tkinter as tk
-
 
 states = ('N', 'M', 'V')
 
